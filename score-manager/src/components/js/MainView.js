@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Score from "./components/Score";
-import "./components/mainView.css"
+import Score from "./Score";
+import "../css/mainView.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 

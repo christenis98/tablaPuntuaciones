@@ -1,4 +1,4 @@
-import "./Score.css";
+import "../css/Score.css";
 import Card from "./Card";
 
 const Score = ({ scoreData }) => {
@@ -7,7 +7,7 @@ const Score = ({ scoreData }) => {
   return (
     <div className="row justify-content-lg-center  justify-content-sm-center mb-3">
       {scoreData.map(({scoreData}, keys) => (<Card key={keys}></Card>
-      ))};
+      ))}
     </div>
   );
 };

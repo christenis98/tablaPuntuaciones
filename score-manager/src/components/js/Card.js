@@ -1,5 +1,4 @@
-import "./Card.css";
-import { useState } from "react";
+import "../css/Card.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Card = (props) => {
