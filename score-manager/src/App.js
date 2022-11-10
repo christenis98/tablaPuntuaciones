@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import MainView from "./MainView.js";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const scoreData = [
+    { team: 1, score: 5 },
+    { team: 2, score: 5 },
+    { team: 3, score: 5 },
+    { team: 4, score: 5 },
+    { team: 5, score: 5 },
+    { team: 6, score: 5 },
+    { team: 7, score: 5 },
+    { team: 8, score: 5 },
+    { team: 9, score: 5 },
+    { team: 10, score: 5 },
+  ];
+  return <MainView  scoreData={scoreData}/>;
 }
 
 export default App;
