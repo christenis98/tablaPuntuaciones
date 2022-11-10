@@ -1,10 +1,12 @@
 import React from "react";
 import "./App.css";
-import MainView from "./MainView.js";
+import Score from './components/Score';
 
 function App() {
   return (
-        <MainView />
+    <div className="App">
+      <Score></Score>
+    </div>
   );
 }
 
