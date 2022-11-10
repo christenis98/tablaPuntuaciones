@@ -1,3 +1,3 @@
-backend: Nestor, Ivan, Sergio.
-frontend: Cristian, Lina, Pedro.
+backend (Spring Boot): Nestor, Ivan, Sergio.
+frontend (Bootstrap): Cristian, Lina, Pedro.
 full stack: Claudia, Timotei.
