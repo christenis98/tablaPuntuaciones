@@ -1,6 +1,6 @@
 import React from "react";
 
-function mainView()  {
+const mainView = (props) => {
     return (
         <div>
             <h1>SOLERA TEAMS. BOOTCAMP 4</h1>
