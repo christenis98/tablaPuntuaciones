@@ -1,9 +1,9 @@
 import "./Score.css";
 import Card from "./Card";
 
-const Score = () => {
+const Score = (props) => {
   return (
-    <div>
+    <div view ={props.view}>
       <div className="div">
         <Card></Card>
         <Card></Card>

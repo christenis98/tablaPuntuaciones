@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import DetailView from "./components/DetailView";
 import MainView from "./MainView.js";
 
 function App() {
@@ -15,7 +16,10 @@ function App() {
     { team: 9, score: 5 },
     { team: 10, score: 5 },
   ];
-  return <MainView  scoreData={scoreData}/>;
+  
+  return (    
+    <MainView/>     
+  )
 }
 
 export default App;
