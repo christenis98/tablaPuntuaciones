@@ -13,11 +13,11 @@ const Score = (props) => {
     { id:7, team: 7, score: 5 },
     { id:8, team: 8, score: 2 },
     { id:9, team: 9, score: 20 },
-    { id:10, team: 10, score: 5 },
+    { id:10, team: 0, score: 5 },
   ];
 
   return (
-    <div className="row justify-content-lg-start  justify-content-sm-center mb-3">
+    <div className="row justify-content-lg-start justify-content-sm-center mb-3">
       {scoreData.map(({ id,team,score }) => (
         <Card key={id} team={team} score={score} callback={props.callback}></Card>
       ))}

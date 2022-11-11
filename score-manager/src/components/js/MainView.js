@@ -20,9 +20,9 @@ const MainView = () => {
         style={{ minHeight: "100vh" }}
       >
         <div className="row justify-content-center">
-          <div className="col-10 m-3 radius soleraBackColor position-relative">
+          <div className="col-10 p-5 radius soleraBackColor position-relative">
             <div>
-              <h2 className="text-white m-4">Solera Teams Bootcamp 4</h2>
+              <h2 className="text-white mb-4">Solera Teams Bootcamp 4</h2>
             </div>
             <Score callback={callback} />
             {isvisible && <DetailView callback={callback} teamnumber={teamnumber} />}

@@ -14,24 +14,12 @@ export default function DetailView(props) {
   return (
     <>
       <div
-        style={{
-          width: "110%",
-          height: "110%",
-        }}
-        className="position-absolute top-50 start-50 translate-middle rounded-5 bg-light border border-secondary p-5"
-      >
-        <button
-          onClick={clickHandler}
-          style={{
-            right: "2%",
-            top: "3%",
-          }}
-          className="position-absolute btn btn-primary"
-        >
-          x
-        </button>
-        <h1>TEAM {props.teamnumber}</h1>
-        <hr></hr>
+        style={{width: "110%",}} className="position-absolute top-50 start-50 translate-middle rounded-3 bg-light border border-secondary p-5">
+          <div className="d-flex justify-content-between">
+            <h3>TEAM {props.teamnumber}</h3>
+            <button onClick={clickHandler} className="btn btn-primary border border-dark">x</button>
+          </div>
+          <hr></hr>
         <TaskList></TaskList>
       </div>
     </>

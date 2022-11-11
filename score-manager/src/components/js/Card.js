@@ -13,9 +13,9 @@ const Card = (props) => {
   };
 
   return (
-    <div className="col-lg-2  col-sm-6 p-0 m-0 d-flex justify-content-center ">
-      <button onClick={clickHandler} className=" btn-lg-2 m-2 ">
-        <div className="text-uppercase fs-1 mb-4">Team {props.team}</div>
+    <div className="col-lg-2 col-sm-6 p-0 m-0 d-flex justify-content-center">
+      <button onClick={clickHandler} className=" btn-lg-2 m-2 rounded-3">
+        <div className="text-uppercase fs-3 mb-4">Team 0{props.team}</div>
         <div className="fw-bold display-4 fs-1 mb-4">{props.score}</div>
       </button>
     </div>

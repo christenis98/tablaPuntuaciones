@@ -3,38 +3,22 @@ import Task from './Task'
 
 export default function TaskList() {
     const teamData = [
-        { id:1, task: 1, member: 10 },
-        { id:2, task: 2, member: 5 },
-        { id:3, task: 3, member: 15 },
-        { id:4, task: 4, member: 0 },
-        { id:5, task: 5, member: 8 },
-        { id:6, task: 6, member: 10 },
-        { id:7, task: 7, member: 5 },
-        { id:8, task: 8, member: 2 },
-        { id:9, task: 9, member: 20 },
-        { id:10, task: 10, member: 5 },
+        { id:1, tasks: [{taskId:1,taskName:"task 1"}], score: 10 },
+        { id:2, tasks: [{taskId:2,taskName:"task 2"}], score: 5 },
+        { id:3, tasks: [{taskId:3,taskName:"task 3"}], score: 15 },
+        { id:4, tasks: [{taskId:4,taskName:"task 4"}], score: 0 },
+        { id:5, tasks: [{taskId:5,taskName:"task 5"}], score: 8 },
+        { id:6, tasks: [{taskId:6,taskName:"task 6"}], score: 10 },
+        { id:7, tasks: [{taskId:7,taskName:"task 7"}], score: 5 },
+        { id:8, tasks: [{taskId:8,taskName:"task 8"}], score: 2 },
+        { id:9, tasks: [{taskId:9,taskName:"task 9"}], score: 20 },
+        { id:10, tasks: [{taskId:10,taskName:"task 10"}], score: 5 }
       ];
-
-//   return(
-//     <div>
-//         <ul>
-//             <li>task 1</li>
-//             <li>task 2</li>
-//             <li>task 3</li>
-//             <li>task 4</li>
-//             <li>task 5</li>
-//             <li>task 6</li>
-//             <li>task 7</li>
-//             <li>task 8</li>
-//             <li>task 9</li>
-//         </ul>
-//     </div>
-//   )
 
   return (
     <div className="">
-      {teamData.map(({ id,task,member }) => (
-        <Task key={id} team={task} score={member}></Task>
+      {teamData.map(({ id,tasks,score }) => (
+        <Task key={id} tasks={tasks} score={score}></Task>
       ))}
     </div>
   );
