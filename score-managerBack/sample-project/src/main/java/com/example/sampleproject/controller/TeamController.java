@@ -36,7 +36,7 @@ public class TeamController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> saveTeam(@RequestBody Team team) {
+    public ResponseEntity<Team> saveTeam(@RequestBody Team team) {
 
         String  message="Wrong data!";
         if(team != null){
@@ -44,7 +44,7 @@ public class TeamController {
             message="Team Created";
 
         }
-        return new ResponseEntity<>(message,HttpStatus.CREATED);
+        return new ResponseEntity<>(team,HttpStatus.CREATED);
     }
 
 
