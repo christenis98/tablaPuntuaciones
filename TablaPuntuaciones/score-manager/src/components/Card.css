@@ -1,0 +1,8 @@
+.div1 {
+    border: 2px red solid;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    float: left;
+}
