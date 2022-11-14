@@ -1,51 +1,52 @@
 package com.example.sampleproject.controller;
 
-import com.example.sampleproject.model.Team;
-import com.example.sampleproject.service.TeamService;
-import lombok.AllArgsConstructor;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
+import com.example.sampleproject.model.Team;
+import com.example.sampleproject.service.TeamService;
 
 @RestController
 @RequestMapping("api/teams")
-@AllArgsConstructor
 @CrossOrigin
 public class TeamController {
 
-    @Autowired
-    TeamService service;
+	@Autowired
+	TeamService service;
 
-    // HTTP methods:
-    @GetMapping()
-    public ResponseEntity<List<Team>> fetchAllTeams() {
+	// HTTP methods:
+	@GetMapping(path = "/allTeams")
+	public ResponseEntity<List<Team>> fetchAllTeams() {
 
-        List<Team> listOfTeams= service.getAllTeams();
+		List<Team> listOfTeams = service.getAllTeams();
 
-        return new ResponseEntity<>(listOfTeams, HttpStatus.OK);
-    }
+		return new ResponseEntity<>(listOfTeams, HttpStatus.OK);
+	}
 
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<Team> fetchTeam(@PathVariable String id) {
-        Team team= service.getTeams(id);
-        return new ResponseEntity<>(team,HttpStatus.OK);
-    }
+	@GetMapping(path = "/{id}")
+	public ResponseEntity<Team> fetchTeam(@PathVariable String id) {
+		Team team = service.getTeams(id);
+		return new ResponseEntity<>(team, HttpStatus.OK);
+	}
 
-    @PostMapping()
-    public ResponseEntity<Team> saveTeam(@RequestBody Team team) {
+	@PostMapping(path = "/createTeam")
+	public ResponseEntity<Team> saveTeam(@RequestBody Team team) {
+		
+		if (service.checkData(team)) {
+			service.save(team);
 
-        String  message="Wrong data!";
-        if(team != null){
-            service.save(team);
-            message="Team Created";
-
-        }
-        return new ResponseEntity<>(team,HttpStatus.CREATED);
-    }
-
+		}
+		return new ResponseEntity<>(team, HttpStatus.CREATED);
+	}
 
 }
