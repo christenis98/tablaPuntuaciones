@@ -3,6 +3,7 @@ import Score from "./Score";
 import "../css/mainView.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DetailView from "./DetailView";
+import NewTeamButton from "./NewTeamButton";
 
 const MainView = () => {
   const API_URL = "http://localhost:8080/api/teams";
@@ -11,20 +12,26 @@ const MainView = () => {
   const [teamName, setTeamName] = useState("");
   const [teams, setTeams] = useState([]);
 
+  const fetchTeams = (url) =>
+    fetch(url)
+      .then((res) => res.json())
+      .then((response) => setTeams(response));
+
   const callback = (isvis, team, points) => {
     setisvisible(isvis);
     setTeamName(team);
   };
 
-  console.log(teamName)
+  console.log(teamName);
 
   useEffect(() => {
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((response) => setTeams(response));
+    fetchTeams(API_URL);
   }, []);
 
-  // useEffect(() => {
+  const newButtonHandler = () => {
+    fetchTeams(API_URL);
+  };
+
   //   // const scores = mockedDb.map(team => team.tasks).flat().map(task => task.score)
 
   //   // const teamPointsCollection = teamTasksCollection.score.map(
@@ -52,13 +59,14 @@ const MainView = () => {
               <h2 className="text-white mb-4">Solera Teams Bootcamp 4</h2>
             </div>
             <Score callback={callback} teams={teams} />
-            {isvisible && (
+            {/* {isvisible && (
               <DetailView
                 callback={callback}
                 teamname={teamName}
                 teams={teams}
               />
-            )}
+            )} */}
+            <NewTeamButton onNewButton={newButtonHandler} />
           </div>
         </div>
       </div>

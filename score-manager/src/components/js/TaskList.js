@@ -7,7 +7,7 @@ export default function TaskList(props) {
 
   useEffect(() => {
     const currentTeam = props.teams.find(
-      (team) => team.name == props.teamname
+      (team) => team.name === props.teamname
     );
 
     const tasksList = currentTeam.scores;
@@ -24,7 +24,7 @@ export default function TaskList(props) {
     <div>
       {tasks.map((task) => (
         <Task
-          key={task.id}
+          //key={task.id}
           name={task.name}
           points={task.points}
           callback={props.callback}
