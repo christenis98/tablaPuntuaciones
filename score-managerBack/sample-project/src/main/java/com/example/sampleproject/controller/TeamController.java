@@ -46,6 +46,28 @@ public class TeamController {
         }
         return new ResponseEntity<>(team,HttpStatus.CREATED);
     }
+    
+    //-----[Update and Delete methods, Claudia can you fix them PLEASE]-----
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<Team> updateTeam(@RequestBody Team newTeam, @PathVariable String id) {
+        Team oldTeam = service.getTeams(id);
+        if(oldTeam.getId() != newTeam.getId()) {
+            String message = "Error: the IDs do NOT match.";
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        oldTeam.setId(newTeam.setId());
+        oldTeam.setName(newTeam.getName());
+        oldTeam.setScores(newTeam.getScores());
+        service.save(oldTeam);
+        return new ResponseEntity<>(newTeam, HttpStatus.OK);
+    }
 
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity deleteTeam(@PathVariable String id) {
+        Team team = service.getTeams(id);
+        service.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
+    //----------
 
 }
