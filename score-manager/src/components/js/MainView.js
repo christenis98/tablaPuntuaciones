@@ -5,78 +5,40 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DetailView from "./DetailView";
 
 const MainView = () => {
-  const mockedDb = [
-    {
-      id: 1,
-      team: 1,
-      tasks: [{ id: 1, description: "task 1", score: 5 }],
-    },
-    {
-      id: 2,
-      team: 2,
-      tasks: [
-        { id: 1, description: "task 1", score: 5 },
-        { id: 2, description: "task 2", score: 5 },
-      ],
-    },
-    {
-      id: 3,
-      team: 3,
-      tasks: [
-        { id: 1, description: "task 1", score: 5 },
-        { id: 2, description: "task 2", score: 5 },
-        { id: 3, description: "task 3", score: 5 },
-      ],
-    },
-    {
-      id: 4,
-      team: 4,
-      tasks: [
-        { id: 1, description: "task 1", score: 5 },
-        { id: 2, description: "task 2", score: 5 },
-        { id: 3, description: "task 3", score: 5 },
-        { id: 4, description: "task 4", score: 5 },
-      ],
-    },
-    {
-      id: 5,
-      team: 5,
-      tasks: [
-        { id: 1, description: "task 1", score: 5 },
-        { id: 2, description: "task 2", score: 5 },
-        { id: 3, description: "task 3", score: 5 },
-        { id: 4, description: "task 4", score: 5 },
-        { id: 5, description: "task 5", score: 5 },
-      ],
-    },
-  ];
+  const API_URL = "http://localhost:8080/api/teams/allTeams";
 
   const [isvisible, setisvisible] = useState(false);
-  const [teamnumber, setTeamNumber] = useState("");
-  const [teampoints, setTotalPoints] = useState();
+  const [teamName, setTeamName] = useState("");
+  const [teams, setTeams] = useState([]);
 
   const callback = (isvis, team, points) => {
     setisvisible(isvis);
-    setTeamNumber(team);
+    setTeamName(team);
   };
 
+  console.log(teamName)
+
   useEffect(() => {
-    // const scores = mockedDb.map(team => team.tasks).flat().map(task => task.score)
-  
-    // const teamPointsCollection = teamTasksCollection.score.map(
-    //   ({points}) => points.score
-    // );
-
-    // const teamPoints = tasks.map((teamPoints) =>
-    //   teamPoints.score.reduce((a, b) => a + b, 0)
-    // );
-
-    // const totalTeamPoints = teamPoints.reduce((a, b) => a + b, 0);
-
-    // setTotalPoints(totalPoints);
+    fetch(API_URL)
+      .then((res) => res.json())
+      .then((response) => setTeams(response));
   }, []);
 
-  console.log(teampoints);
+  // useEffect(() => {
+  //   // const scores = mockedDb.map(team => team.tasks).flat().map(task => task.score)
+
+  //   // const teamPointsCollection = teamTasksCollection.score.map(
+  //   //   ({points}) => points.score
+  //   // );
+
+  //   // const teamPoints = tasks.map((teamPoints) =>
+  //   //   teamPoints.score.reduce((a, b) => a + b, 0)
+  //   // );
+
+  //   // const totalTeamPoints = teamPoints.reduce((a, b) => a + b, 0);
+
+  //   // setTotalPoints(totalPoints);
+  // }, []);
 
   return (
     <div className="backgroundColor">
@@ -89,16 +51,12 @@ const MainView = () => {
             <div>
               <h2 className="text-white mb-4">Solera Teams Bootcamp 4</h2>
             </div>
-            <Score
-              callback={callback}
-              mockeddb={mockedDb}
-              totalpoints={teampoints}
-            />
+            <Score callback={callback} teams={teams} />
             {isvisible && (
               <DetailView
                 callback={callback}
-                teamnumber={teamnumber}
-                mockeddb={mockedDb}
+                teamname={teamName}
+                teams={teams}
               />
             )}
           </div>
@@ -109,7 +67,3 @@ const MainView = () => {
 };
 
 export default MainView;
-
-// [[{...score:5}],[{...score:5},{...score:5}],[{...score:5},{...score:5},{...score:5}],[{...score:5},{...score:5},{...score:5},{...score:5}],[{...score:5},{...score:5},{...score:5},{...score:5},{...score:5}]]
-
-// [[5],[5,5],[5,5,5],[5,5,5,5],[5,5,5,5,5]]

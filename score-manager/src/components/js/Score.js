@@ -2,14 +2,14 @@ import "../css/Score.css";
 import Card from "./Card";
 
 const Score = (props) => {
-  const scoreData = props.mockeddb;
+  const teams = props.teams;
 
   return (
     <div className="row justify-content-lg-start justify-content-sm-center mb-3">
-      {scoreData.map(({ id, team }) => (
+      {teams.map(({ id, name }) => (
         <Card
           key={id}
-          team={team}
+          name={name}
           callback={props.callback}
         ></Card>
       ))}
