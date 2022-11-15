@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DetailView from "./DetailView";
 
 const MainView = () => {
-  const API_URL = "http://localhost:8080/api/teams/allTeams";
+  const API_URL = "http://localhost:8080/api/teams";
 
   const [isvisible, setisvisible] = useState(false);
   const [teamName, setTeamName] = useState("");

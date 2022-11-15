@@ -26,7 +26,7 @@ public class TeamController {
 	TeamService service;
 
 	// HTTP methods:
-	@GetMapping(path = "/allTeams")
+	@GetMapping()
 	public ResponseEntity<List<Team>> fetchAllTeams() throws Exception {
 
 		List<Team> listOfTeams = service.getAllTeams();
@@ -43,7 +43,7 @@ public class TeamController {
 		return new ResponseEntity<>(team, HttpStatus.OK);
 	}
 
-	@PostMapping(path = "/createTeam")
+	@PostMapping()
 	public ResponseEntity<Team> saveTeam(@RequestBody Team team) throws Exception {
 
 //		Checking if all data passed is valid

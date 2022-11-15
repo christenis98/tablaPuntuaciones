@@ -13,6 +13,7 @@ export default function TaskList(props) {
     const tasksList = currentTeam.scores;
 
     setTasks(tasksList);
+    
     // const teamPoints = tasksList.map((task) => task.score);
     // const totalTeamPoints = teamPoints.reduce((a, b) => a + b, 0);
     // setTotalPoints(totalTeamPoints);
@@ -24,7 +25,8 @@ export default function TaskList(props) {
       {tasks.map((task) => (
         <Task
           key={task.id}
-          score={task.name}
+          name={task.name}
+          points={task.points}
           callback={props.callback}
         ></Task>
       ))}
