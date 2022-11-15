@@ -5,7 +5,7 @@ public class Score {
 
     private String name;
 
-    private Integer points;
+    private int points;
 
 
 	public String getName() {
@@ -16,11 +16,11 @@ public class Score {
 		this.name = name;
 	}
 
-	public Integer getPoints() {
+	public int getPoints() {
 		return points;
 	}
 
-	public void setPoints(Integer points) {
+	public void setPoints(int points) {
 		this.points = points;
 	}
     
