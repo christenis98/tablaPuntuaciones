@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import NewTask from "./NewTask";
 import TaskList from "./TaskList";
+import { Link,useParams } from "react-router-dom";
 
 export default function DetailView(props) {
-  const [isvisible, setIsvisble] = useState(false);
+  // const [isvisible, setIsvisble] = useState(false);
+
+  const identifierObj=useParams();
+  const identifier=identifierObj.id;
+
   const [updatedTeam, setUpdatedTeam] = useState(
-    props.teams.find((team) => team.name === props.teamname)
+    props.teams.find((team) => team.name === identifier)
   );
 
   const url = "http://localhost:8080/api/teams";
@@ -19,11 +24,11 @@ export default function DetailView(props) {
   // // console.log(currentTeam);
   // setUpdatedTeam(currentTeam);
 
-  const clickHandler = () => {
-    let isvis = false;
-    setIsvisble(isvis);
-    props.callback(isvis);
-  };
+  // const clickHandler = () => {
+  //   let isvis = false;
+  //   setIsvisble(isvis);
+  //   props.callback(isvis);
+  // };
 
   const updateDataBase = (team) => {
     fetch(url, {
@@ -51,24 +56,13 @@ export default function DetailView(props) {
 
   return (
     <>
-      <div
-        style={{ width: "110%" }}
-        className="position-absolute top-50 start-50 translate-middle rounded-3 bg-light border border-secondary p-5"
-      >
+      <div className="position-absolute top-50 start-50 translate-middle rounded-3 bg-light border border-secondary p-5">
         <div className="d-flex justify-content-between">
           <h3>{props.teamname}</h3>
-          <button
-            onClick={clickHandler}
-            className="btn btn-primary border border-dark"
-          >
-            x
-          </button>
+          <Link to={"/"}><button className="btn btn-primary border border-dark">x</button></Link>
         </div>
         <hr></hr>
-        <TaskList
-          tasks={updatedTeam.scores}
-          callback={props.callback}
-        ></TaskList>
+        {/* <TaskList tasks={updatedTeam.scores} callback={props.callback}></TaskList> */}
         <NewTask onAddTask={newTaskHandler} />
       </div>
     </>
