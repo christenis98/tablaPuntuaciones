@@ -3,9 +3,10 @@ import "../css/NewTeamButon.css";
 
 const NewTeam = (props) => {
   var url = "http://localhost:8080/api/teams";
+  const teamcount = props.teamcount;
   var data = {
     id: Math.random().toString().split(".")[1],
-    name: "team6511",
+    name: "team" + teamcount,
     scores: [
       { name: "task1", points: 8 },
       { name: "task2", points: 8 },

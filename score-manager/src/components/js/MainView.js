@@ -20,6 +20,7 @@ const MainView = () => {
   const callback = (isvis, team, points) => {
     setisvisible(isvis);
     setTeamName(team);
+    fetchTeams(API_URL);
   };
 
   useEffect(() => {
@@ -65,7 +66,7 @@ const MainView = () => {
               />
             )}
             <NewTeamButton
-              teamCount={teams.length()}
+              teamcount={teams.length}
               onNewButton={newButtonHandler}
             />
           </div>

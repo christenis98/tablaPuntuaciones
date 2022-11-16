@@ -5,11 +5,11 @@ import React, { useState } from "react";
 
 const Card = (props) => {
   const [isvisible, setIsvisble] = useState(false);
-  
+
   const clickHandler = () => {
     let isvis = true;
     setIsvisble(isvis);
-    props.callback(isvis,props.name);
+    props.callback(isvis, props.name);
   };
 
   return (
