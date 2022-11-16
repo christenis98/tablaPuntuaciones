@@ -32,6 +32,10 @@ public class TeamService {
 		teamRepository.save(team);
 		return team;
 	}
+	
+	public void delete(String id) throws Exception {
+		teamRepository.deleteById(id);
+	}
 
 	public boolean checkData(Team team) {
 		JSONObject object = new JSONObject(team);
