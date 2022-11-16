@@ -22,8 +22,6 @@ const MainView = () => {
     setTeamName(team);
   };
 
-  console.log(teamName);
-
   useEffect(() => {
     fetchTeams(API_URL);
   }, []);
