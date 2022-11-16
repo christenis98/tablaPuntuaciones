@@ -59,13 +59,13 @@ const MainView = () => {
               <h2 className="text-white mb-4">Solera Teams Bootcamp 4</h2>
             </div>
             <Score callback={callback} teams={teams} />
-            {/* {isvisible && (
+            {isvisible && (
               <DetailView
                 callback={callback}
                 teamname={teamName}
                 teams={teams}
               />
-            )} */}
+            )}
             <NewTeamButton onNewButton={newButtonHandler} />
           </div>
         </div>
