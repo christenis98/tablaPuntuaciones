@@ -64,7 +64,10 @@ const MainView = () => {
                 teams={teams}
               />
             )}
-            <NewTeamButton onNewButton={newButtonHandler} />
+            <NewTeamButton
+              teamCount={teams.length()}
+              onNewButton={newButtonHandler}
+            />
           </div>
         </div>
       </div>
