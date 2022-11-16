@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "../css/NewTeamButon.css";
+import {v4 as uuidv4} from "uuid";
 
 const NewTeam = (props) => {
   var url = "http://localhost:8080/api/teams";
   var data = {
-    id: Math.random().toString().split(".")[1],
+    id: uuidv4(),
     name: "team6511",
     scores: [
       { name: "task1", points: 8 },
