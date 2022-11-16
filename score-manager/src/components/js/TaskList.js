@@ -5,26 +5,25 @@ export default function TaskList(props) {
   const [tasks, setTasks] = useState([]);
   // const [totalPoints, setTotalPoints] = useState([]);
 
-  useEffect(() => {
-    const currentTeam = props.teams.find(
-      (team) => team.name === props.teamname
-    );
+  // console.log(props.team + "team from detail view");
 
-    const tasksList = currentTeam.scores;
+  useEffect(() => {
+    const tasksList = props.tasks;
 
     setTasks(tasksList);
-    
+
+    console.log("deloquequieras");
     // const teamPoints = tasksList.map((task) => task.score);
     // const totalTeamPoints = teamPoints.reduce((a, b) => a + b, 0);
     // setTotalPoints(totalTeamPoints);
     // callback(totalPoints);
-  }, []);
+  }, [props.tasks]);
 
   return (
     <div>
       {tasks.map((task) => (
         <Task
-          //key={task.id}
+          key={task.id}
           name={task.name}
           points={task.points}
           callback={props.callback}
