@@ -19,12 +19,25 @@ namespace TeamsScores.Controllers
         }
         // GET: api/<TeamsController>
         [HttpGet]
-        public ActionResult<List<Team>> Get()
-        {
+        //public ActionResult<List<Team>> Get()
+        //{
             
-            return _teamService.Get();
-        }
+        //    return _teamService.Get();
+        //}
 
+        public async Task<IActionResult> Get()
+        {
+            try
+            {
+                var result = _teamService.Get();
+                return StatusCode(200,result);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
         // GET api/<TeamsController>/5
         [HttpGet("{id}")]
         public ActionResult<Team> Get(string id)
