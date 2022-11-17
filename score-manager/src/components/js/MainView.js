@@ -6,7 +6,7 @@ import DetailView from "./DetailView";
 import NewTeamButton from "./NewTeamButton";
 
 const MainView = () => {
-  const API_URL = "http://localhost:8080/api/teams";
+  const API_URL = "httpS://localhost:7260/api/Teams";
 
   const [isvisible, setisvisible] = useState(false);
   const [teamName, setTeamName] = useState("");
