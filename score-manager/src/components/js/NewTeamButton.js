@@ -4,11 +4,11 @@ import {v4 as uuidv4} from "uuid";
 
 
 const NewTeam = (props) => {
+  const number=props.teamcount;
   var url = "http://localhost:8080/api/teams";
-  const teamcount = props.teamcount;
   var data = {
     id: uuidv4(),
-    name: "team6511",
+    name: "Team "+number,
     scores: [
       { name: "task1", points: 8 },
       { name: "task2", points: 8 },
@@ -26,7 +26,7 @@ const NewTeam = (props) => {
       .then((res) => res.json())
       .then((response) => {
         console.log("Success: ", response);
-        props.onNewButton();
+        window.location.reload(true)        
       });
   };
 

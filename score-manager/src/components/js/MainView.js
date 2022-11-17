@@ -4,28 +4,25 @@ import "../css/mainView.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NewTeamButton from "./NewTeamButton";
 
-const MainView = (props) => {
+const MainView = () => {
   const API_URL = "http://localhost:8080/api/teams";
 
-  const [teamName, setTeamName] = useState("");
   const [teams, setTeams] = useState([]);
 
-  // useEffect(() => {
-  //   fetchTeams(API_URL);
-  // }, []);  
+  const getTeams = async () => {
+    const res=await fetch(API_URL)
+    const data= await res.json()
 
-  const callback = (team) => {
-    setTeamName(team);
-    fetchTeams(API_URL);
+    return data
   };
 
-  const newButtonHandler = () => {
-    fetchTeams(API_URL);
-  };
+  // const newButtonHandler = () => {
+  //   getTeams().then(data=>setTeams(data))
+  // };
 
-  const fetchTeams = (url) =>{
-    fetch(url).then((res) => res.json()).then((response) => setTeams(response));
-  }   
+  useEffect(() => {
+    getTeams().then(data=>setTeams(data))
+  }, [])
 
   return (
     <div className="backgroundColor">
@@ -38,17 +35,9 @@ const MainView = (props) => {
             <div>
               <h2 className="text-white mb-4">Solera Teams Bootcamp 4</h2>
             </div>
-            <Score callback={callback} teams={props.teams} teamname={teamName} />
-            {/* {isvisible && (
-              <DetailView
-                callback={callback}
-                teamname={teamName}
-                teams={teams}
-              />
-            )} */}
+            <Score teams={teams} />
             <NewTeamButton
-              teamCount={teams.length}
-              onNewButton={newButtonHandler}
+              teamcount={teams.length}              
             />
           </div>
         </div>
