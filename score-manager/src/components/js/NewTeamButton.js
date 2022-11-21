@@ -30,7 +30,7 @@ const NewTeam = (props) => {
 
   return (
     <div className="new-team">
-      <button className="new-team-button" onClick={clickHandler}>
+      <button className="new-team-button font-monospace" onClick={clickHandler}>
         New Team
       </button>
     </div>

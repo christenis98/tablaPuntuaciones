@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NewTask from "./NewTask";
 import TaskList from "./TaskList";
+import "../css/DetailView.css";
 
 export default function DetailView(props) {
   const [isvisible, setIsvisble] = useState(false);
@@ -52,17 +53,12 @@ export default function DetailView(props) {
   return (
     <>
       <div
-        style={{ width: "110%" }}
-        className="position-absolute top-50 start-50 translate-middle rounded-3 bg-light border border-secondary p-5"
+        style={{ width: "75%" }}
+        className="background position-absolute top-50 start-50 translate-middle p-5"
       >
         <div className="d-flex justify-content-between">
-          <h3>{props.teamname}</h3>
-          <button
-            onClick={clickHandler}
-            className="btn btn-primary border border-dark"
-          >
-            x
-          </button>
+          <h3 className="text-white font-monospace text-uppercase">{props.teamname}</h3>
+          <button className="btn-close btn-close-white" onClick={clickHandler}></button>
         </div>
         <hr></hr>
         <TaskList

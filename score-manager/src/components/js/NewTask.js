@@ -25,11 +25,11 @@ const NewTask = (props) => {
   return (
     <div>
       {newTask ? (
-        <button className="new-task__button" onClick={onClickHandler}>
+        <button className="new-task-button font-monospace" onClick={onClickHandler}>
           New Task
         </button>
       ) : (
-        <button className="new-task__button" onClick={onClickHandler}>
+        <button className="new-task-button font-monospace" onClick={onClickHandler}>
           Hide New Task
         </button>
       )}

@@ -55,7 +55,7 @@ const MainView = () => {
         <div className="row justify-content-center">
           <div className="col-10 p-5 radius soleraBackColor position-relative">
             <div>
-              <h2 className="text-white mb-4">Solera Teams Bootcamp 4</h2>
+              <h2 className="text-white mb-4 text-center font-monospace">Solera Teams Bootcamp 4</h2>
             </div>
             <Score callback={callback} teams={teams} />
             {isvisible && (

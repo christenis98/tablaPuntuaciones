@@ -5,7 +5,7 @@ const Score = (props) => {
   const teams = props.teams;
 
   return (
-    <div className="row justify-content-lg-start justify-content-sm-center mb-3">
+    <div className="row justify-content-lg-center mb-4">
       {teams.map(({ id, name }) => (
         <Card
           key={id}

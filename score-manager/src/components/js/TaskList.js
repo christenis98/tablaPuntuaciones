@@ -20,7 +20,7 @@ export default function TaskList(props) {
   }, [props.tasks]);
 
   return (
-    <div>
+    <div className="mb-4">
       {tasks.map((task) => (
         <Task
           key={task.id}

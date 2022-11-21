@@ -28,9 +28,9 @@ const NewTaskForm = (props) => {
   return (
     <div>
       <form onSubmit={submintHandler}>
-        <div className="new-expense__element">
+        <div className="container new-expense__element font-monospace pt-2 ps-0">
           <div className="new-task__form">
-            <label>Task name</label>
+            <label >Task name</label>
             <input
               type="text"
               value={enteredTaskName}
@@ -50,7 +50,7 @@ const NewTaskForm = (props) => {
           </div>
         </div>
         <div>
-          <button type="submit">Add Task</button>
+          <button className="add-task-button" type="submit">Add Task</button>
         </div>
       </form>
     </div>
