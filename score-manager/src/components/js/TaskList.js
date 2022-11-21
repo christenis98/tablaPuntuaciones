@@ -6,19 +6,14 @@ export default function TaskList(props) {
 
   let tasks;
 
-  if (props.team != null)
-  {
-    tasks=props.team.scores;
+  if (props.team != null) {
+    tasks = props.team.scores;
   }
 
   return (
     <div>
-      {tasks?.map(({ id, name, scores }) => (
-        <Task
-          key={id}
-          name={name}
-          scores={scores}          
-        ></Task>
+      {tasks?.map(({ id, name, points }) => (
+        <Task key={id} name={name} points={points}></Task>
       ))}
     </div>
   );

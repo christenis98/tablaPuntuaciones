@@ -9,7 +9,6 @@ export default function DetailView() {
   const [teams, setTeams] = useState([]);
   const [currentTeam, setCurrentTeam] = useState({});
   const [currentTeamName, setCurrentTeamName] = useState(" ");
-  const navigate = useNavigate();
 
   const identifier = identifierObj.id;
   const API_URL = "http://localhost:8080/api/teams";
@@ -36,31 +35,35 @@ export default function DetailView() {
     setCurrentTeamName(teamName);
   }, [currentTeam]);
 
-
-
-
-
-
-
   const onAddTask = (task) => {
+    const teamUpdated = {
+      id: currentTeam.currentTeam.id,
+      name: currentTeam.currentTeam.name,
+      scores: [...currentTeam.currentTeam.scores, task],
+    };
 
-    setCurrentTeam((prevTeam) => {
-      const newTeam = {
-        id: prevTeam.id,
-        name: prevTeam.name,
-        scores: [...prevTeam.scores, task],
-      };
+    postTeamWithNewTask(teamUpdated);
+  };
 
-      getTeams().then((data) => setTeams(data));
-
-      return newTeam;
+  const postTeamWithNewTask = async (teamUpdated) => {
+    const response = fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify(teamUpdated),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-    
+
+    const fetchedData = await response;
+    const fetchedDataJson = await fetchedData.json();
+    console.log("Success: ", fetchedDataJson);
+
+    getTeams().then((data) => setTeams(data));
   };
 
   return (
     <>
-      <div className="position-absolute top-50 start-50 translate-middle rounded-3 bg-light border border-secondary p-5">
+      <div className="p-5">
         <div className="d-flex justify-content-between">
           <h3>{currentTeamName}</h3>
           <Link to={"/"}>
@@ -70,6 +73,8 @@ export default function DetailView() {
         <hr></hr>
         <TaskList team={currentTeam.currentTeam}></TaskList>
         <NewTaskButton onAddTask={onAddTask}></NewTaskButton>
+      </div>
+      <div className="p-5 d-flex justify-content-end">
         <DeleteTeamButton></DeleteTeamButton>
       </div>
     </>

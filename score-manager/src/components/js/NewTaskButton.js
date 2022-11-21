@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "../css/NewTask.css";
-import NewTaskForm from "./Forms/NewTaskForm";
+import NewTaskForm from "./NewTaskForm";
 
 const NewTask = (props) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,7 +23,15 @@ const NewTask = (props) => {
 
   return (
     <>
-      {newTask ? (<button className="btn btn-primary" onClick={onClickHandler}>New Task</button>) : (<button className="btn btn-primary" onClick={onClickHandler}>Hide New Task</button>)}
+      {newTask ? (
+        <button className="btn btn-primary my-2" onClick={onClickHandler}>
+          New Task
+        </button>
+      ) : (
+        <button className="btn btn-primary my-2" onClick={onClickHandler}>
+          Hide
+        </button>
+      )}
       {isVisible ? <NewTaskForm onSaveNewTask={onSaveNewTask} /> : null}
     </>
   );
