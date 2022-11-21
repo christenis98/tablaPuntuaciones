@@ -14,37 +14,19 @@ const NewTaskForm = (props) => {
   };
 
   const submintHandler = (event) => {
+    
     event.preventDefault();
     const task = {
       name: enteredTaskName,
       points: enteredPoints,
       id: Math.random().toString().split(".")[1],
     };
+
     props.onSaveNewTask(task);
 
     setEnteredPoints("");
     setEnteredTaskName("");
-
-    // const newTeam = {
-    //   id: prevTeam.id,
-    //   name: prevTeam.name,
-    //   scores: [...prevTeam.scores, task],
-    // };
-
-    // postNewTask(newTeam);
   };
-
-  // const postNewTask = () => {
-  //   fetch("http://localhost:8080/api/teams", {
-  //     method: "POST",
-  //     body: JSON.stringify(team),
-  //     headers: { "Content-Type": "application/json" },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       console.log("Success: ", response);
-  //     });
-  // };
 
   return (
     <div>
@@ -71,7 +53,7 @@ const NewTaskForm = (props) => {
           </div>
         </div>
         <div>
-          <button type="submit">Add Task</button>
+          <button className="btn btn-danger" type="submit">Add Task</button>
         </div>
       </form>
     </div>

@@ -25,7 +25,7 @@ export default function DeleteTeamButton() {
   };
 
   return (
-    <div className="d-flex justify-content-end">
+    <div className="mt-1">
       <button onClick={ClickHandler} className="btn btn-primary">
         Delete This Team
       </button>

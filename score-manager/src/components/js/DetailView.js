@@ -6,19 +6,17 @@ import DeleteTeamButton from "./DeleteTeamButton";
 
 export default function DetailView() {
   const identifierObj = useParams();
-  const identifier = identifierObj.id;
-  const API_URL = "http://localhost:8080/api/teams";
-
   const [teams, setTeams] = useState([]);
   const [currentTeam, setCurrentTeam] = useState({});
   const [currentTeamName, setCurrentTeamName] = useState(" ");
-
   const navigate = useNavigate();
+
+  const identifier = identifierObj.id;
+  const API_URL = "http://localhost:8080/api/teams";
 
   const getTeams = async () => {
     const res = await fetch(API_URL);
     const data = await res.json();
-
     return data;
   };
 
@@ -38,18 +36,6 @@ export default function DetailView() {
     setCurrentTeamName(teamName);
   }, [currentTeam]);
 
-  // const updateDataBase = (team) => {
-  //   fetch("http://localhost:8080/api/teams", {
-  //     method: "POST",
-  //     body: JSON.stringify(team),
-  //     headers: { "Content-Type": "application/json" },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       console.log("Success: ", response);
-  //     });
-  // };
-
   // const newTaskHandler = (task) => {
   //   setCurrentTeam((prevTeam) => {
   //     const newTeam = {
@@ -57,7 +43,9 @@ export default function DetailView() {
   //       name: prevTeam.name,
   //       scores: [...prevTeam.scores, task],
   //     };
-  //     updateDataBase(newTeam);
+
+  //     getTeams().then((data) => setTeams(data));
+
   //     return newTeam;
   //   });
   // };
@@ -73,10 +61,8 @@ export default function DetailView() {
         </div>
         <hr></hr>
         <TaskList team={currentTeam.currentTeam}></TaskList>
-        <div className="d-flex justify-content-end gap-3">
-          <NewTaskButton></NewTaskButton>
-          <DeleteTeamButton></DeleteTeamButton>
-        </div>
+        <NewTaskButton></NewTaskButton>
+        <DeleteTeamButton></DeleteTeamButton>
       </div>
     </>
   );
