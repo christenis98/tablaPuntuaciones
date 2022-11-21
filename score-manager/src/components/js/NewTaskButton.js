@@ -16,7 +16,7 @@ const NewTask = (props) => {
     }
   };
 
-  const newTaskHandler = (enteredTask) => {
+  const onSaveNewTask = (enteredTask) => {
     setIsVisible(false);
     setNewTask(true);
     props.onAddTask(enteredTask);
@@ -25,7 +25,7 @@ const NewTask = (props) => {
   return (
     <>
       {newTask ? (<button className="btn btn-primary" onClick={onClickHandler}>New Task</button>) : (<button className="btn btn-primary" onClick={onClickHandler}>Hide New Task</button>)}
-      {isVisible ? <NewTaskForm onSaveNewTask={newTaskHandler} /> : null}
+      {isVisible ? <NewTaskForm onSaveNewTask={onSaveNewTask} /> : null}
     </>
   );
 };

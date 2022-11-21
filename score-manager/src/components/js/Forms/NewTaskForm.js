@@ -16,12 +16,13 @@ const NewTaskForm = (props) => {
   const submintHandler = (event) => {
     
     event.preventDefault();
+
     const task = {
       name: enteredTaskName,
       points: enteredPoints,
       id: Math.random().toString().split(".")[1],
     };
-
+    
     props.onSaveNewTask(task);
 
     setEnteredPoints("");

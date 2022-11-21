@@ -36,19 +36,27 @@ export default function DetailView() {
     setCurrentTeamName(teamName);
   }, [currentTeam]);
 
-  // const newTaskHandler = (task) => {
-  //   setCurrentTeam((prevTeam) => {
-  //     const newTeam = {
-  //       id: prevTeam.id,
-  //       name: prevTeam.name,
-  //       scores: [...prevTeam.scores, task],
-  //     };
 
-  //     getTeams().then((data) => setTeams(data));
 
-  //     return newTeam;
-  //   });
-  // };
+
+
+
+
+  const onAddTask = (task) => {
+
+    setCurrentTeam((prevTeam) => {
+      const newTeam = {
+        id: prevTeam.id,
+        name: prevTeam.name,
+        scores: [...prevTeam.scores, task],
+      };
+
+      getTeams().then((data) => setTeams(data));
+
+      return newTeam;
+    });
+    
+  };
 
   return (
     <>
@@ -61,7 +69,7 @@ export default function DetailView() {
         </div>
         <hr></hr>
         <TaskList team={currentTeam.currentTeam}></TaskList>
-        <NewTaskButton></NewTaskButton>
+        <NewTaskButton onAddTask={onAddTask}></NewTaskButton>
         <DeleteTeamButton></DeleteTeamButton>
       </div>
     </>
