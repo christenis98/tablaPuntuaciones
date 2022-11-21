@@ -8,8 +8,7 @@ const Score = ({teams}) => {
         <Card
           key={id}
           identifier={id}
-          name={name}
-          
+          name={name}          
         ></Card>
       ))}
     </div>

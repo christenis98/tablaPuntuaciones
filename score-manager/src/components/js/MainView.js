@@ -16,13 +16,13 @@ const MainView = () => {
     return data
   };
 
-  // const newButtonHandler = () => {
-  //   getTeams().then(data=>setTeams(data))
-  // };
-
   useEffect(() => {
     getTeams().then(data=>setTeams(data))
   }, [])
+
+  useEffect(() => {
+    getTeams().then(data=>setTeams(data))
+  }, [teams])
 
   return (
     <div className="backgroundColor">
