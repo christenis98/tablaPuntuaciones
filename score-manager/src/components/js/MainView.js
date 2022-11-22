@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Score from "./Score";
 import "../css/mainView.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Score from "./Score";
 import NewTeamButton from "./NewTeamButton";
 
 const MainView = () => {

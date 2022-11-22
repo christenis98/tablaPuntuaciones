@@ -9,7 +9,7 @@
 
 .new-task__form label {
   font-weight: bold;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
   display: block;
 }
 
@@ -18,8 +18,8 @@
   padding: 0.5rem;
   border-radius: 10px;
   border: 1px solid #ccc;
-  width: 20rem;
-  max-width: 100%;
+  width: 19rem;
+  max-width: 90%;
 }
 
 .add-task-button {

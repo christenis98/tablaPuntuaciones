@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import "../css/DetailView.css";
+import DeleteTeamButton from "./DeleteTeamButton";
 import NewTaskButton from "./NewTaskButton";
 import TaskList from "./TaskList";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import DeleteTeamButton from "./DeleteTeamButton";
-import "../css/DetailView.css";
+
 
 export default function DetailView() {
   const identifierObj = useParams();
@@ -63,26 +64,22 @@ export default function DetailView() {
   };
 
   return (
-    <>
+    <div className="page-background d-flex justify-content-center">
       <div
-        style={{ width: "75%" }}
-        className="background position-absolute top-50 start-50 translate-middle p-5"
+        style={{ width: "45%" }}
+        className="detail-view p-5"
       >
-        <div className="d-flex justify-content-between">
-          <h3 className="text-white font-monospace text-uppercase">
-            {currentTeamName}
-          </h3>
+        <div className="d-flex justify-content-center"> <DeleteTeamButton></DeleteTeamButton> </div>
+        <div className="d-flex pb-3 justify-content-between">
+          <h3 className="text-white font-monospace text-uppercase mt-2"> {currentTeamName} </h3>
           <Link to={"/"}>
-            <button className="btn-close btn-close-white">x</button>
+            <button className="btn-close btn-close-white"></button>
           </Link>
         </div>
-        <hr></hr>
         <TaskList team={currentTeam.currentTeam}></TaskList>
         <NewTaskButton onAddTask={onAddTask}></NewTaskButton>
       </div>
-      <div className="p-5 d-flex justify-content-end">
-        <DeleteTeamButton></DeleteTeamButton>
-      </div>
-    </>
+      
+    </div>
   );
 }

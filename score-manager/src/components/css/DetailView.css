@@ -1,5 +1,11 @@
-.background{
+.detail-view{
     background-color: #49225c;
     border-radius: 25px;
+    position:fixed;
+    top: 25%;
+}
 
+.page-background{
+    background-color: #B0CBCB;
+    height: 100vh;
 }

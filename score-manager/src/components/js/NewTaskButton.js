@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../css/NewTask.css";
 import NewTaskForm from "./NewTaskForm";
 
 const NewTask = (props) => {
@@ -35,7 +36,7 @@ const NewTask = (props) => {
           className="new-task-button font-monospace"
           onClick={onClickHandler}
         >
-          Hide
+          Hide New Task
         </button>
       )}
       {isVisible ? <NewTaskForm onSaveNewTask={onSaveNewTask} /> : null}
