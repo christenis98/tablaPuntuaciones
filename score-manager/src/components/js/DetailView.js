@@ -60,7 +60,7 @@ export default function DetailView() {
     console.log("Success: ", fetchedDataJson);
 
     getTeams().then((data) => setTeams(data));
-  };
+  };  
 
   return (
     <>
