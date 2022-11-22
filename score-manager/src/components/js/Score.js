@@ -1,15 +1,11 @@
 import "../css/Score.css";
 import Card from "./Card";
 
-const Score = ({teams}) => {
+const Score = ({ teams }) => {
   return (
-    <div className="row justify-content-lg-start justify-content-sm-center mb-3">
+    <div className="row justify-content-lg-center mb-4">
       {teams?.map(({ id, name }) => (
-        <Card
-          key={id}
-          identifier={id}
-          name={name}          
-        ></Card>
+        <Card key={id} identifier={id} name={name}></Card>
       ))}
     </div>
   );

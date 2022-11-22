@@ -4,19 +4,42 @@
   gap: 1rem;
   margin-bottom: 1rem;
   text-align: left;
+  color: #fff;
 }
 
 .new-task__form label {
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   display: block;
 }
 
 .new-task__form input {
   font: inherit;
   padding: 0.5rem;
-  border-radius: 6px;
+  border-radius: 10px;
   border: 1px solid #ccc;
   width: 20rem;
   max-width: 100%;
+}
+
+.add-task-button {
+  transition: all .4s ease;
+  color: #fff;
+  border: 2px solid #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  font-size: 15px;
+  font-weight: bold;
+  background-color : transparent;
+  padding: 16px;
+  outline:none;
+  border-radius: 12px;
+  float: left;
+  cursor: pointer;
+}
+.add-task-button:hover {
+  color: #40005d;
+  border: 2px solid #ffffff;
+  background-color: #ffffff;
 }

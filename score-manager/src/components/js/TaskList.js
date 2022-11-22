@@ -11,7 +11,7 @@ export default function TaskList(props) {
   }
 
   return (
-    <div>
+    <div className="mb-4">
       {tasks?.map(({ id, name, points }) => (
         <Task key={id} name={name} points={points}></Task>
       ))}

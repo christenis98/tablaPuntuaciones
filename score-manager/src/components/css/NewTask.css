@@ -1,12 +1,23 @@
-.new-task__button {
-  font: inherit;
-  cursor: pointer;
-  padding: 1rem 2rem;
-  border: 1px solid #40005d;
-  background-color: #40005d;
-  color: white;
+.new-task-button {
+  transition: all .4s ease;
+  color: #fff;
+  border: 2px solid #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  font-weight: bold;
+  background-color : transparent;
+  padding: 16px;
+  outline:none;
   border-radius: 12px;
-  margin-right: 1rem;
-  margin-top: 2rem;
   float: right;
+  cursor: pointer;
 }
+.new-task-button:hover {
+  color: #40005d;
+  border: 2px solid #ffffff;
+  background-color: #ffffff;
+}
+
+

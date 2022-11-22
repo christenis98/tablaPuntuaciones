@@ -1,11 +1,21 @@
-.new-team-button{
-    font: inherit;
-    cursor: pointer;
-    padding: 1rem 2rem;
-    border: 1px solid #40005d;
-    background-color: #40005d;
-    color: white;
+.new-team-button {
+    transition: all .4s ease;
+    color: #40005d;
+    border: 2px solid #40005d;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 17px;
+    font-weight: bold;
+    background-color : transparent;
+    padding: 16px;
+    outline:none;
     border-radius: 12px;
-    margin-right: 1rem;
     float: right;
+    cursor: pointer;
+}
+.new-team-button:hover {
+    color: #fff;
+    border: 2px solid #40005d;
+    background-color: #40005d;
 }

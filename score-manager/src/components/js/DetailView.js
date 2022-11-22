@@ -3,6 +3,7 @@ import NewTaskButton from "./NewTaskButton";
 import TaskList from "./TaskList";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import DeleteTeamButton from "./DeleteTeamButton";
+import "../css/DetailView.css";
 
 export default function DetailView() {
   const identifierObj = useParams();
@@ -63,11 +64,16 @@ export default function DetailView() {
 
   return (
     <>
-      <div className="p-5">
+      <div
+        style={{ width: "75%" }}
+        className="background position-absolute top-50 start-50 translate-middle p-5"
+      >
         <div className="d-flex justify-content-between">
-          <h3>{currentTeamName}</h3>
+          <h3 className="text-white font-monospace text-uppercase">
+            {currentTeamName}
+          </h3>
           <Link to={"/"}>
-            <button className="btn btn-primary">x</button>
+            <button className="btn-close btn-close-white">x</button>
           </Link>
         </div>
         <hr></hr>
