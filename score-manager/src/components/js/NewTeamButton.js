@@ -1,31 +1,28 @@
 import { useState } from "react";
 import "../css/NewTeamButon.css";
+import { v4 as uuidv4 } from "uuid";
 
 const NewTeam = (props) => {
-  var url = "http://localhost:8080/api/teams";
-  const teamcount = props.teamcount;
-  var data = {
-    id: Math.random().toString().split(".")[1],
-    name: "team" + teamcount,
-    scores: [
-      { name: "task1", points: 8 },
-      { name: "task2", points: 8 },
-    ],
+  const number = props.teamcount;
+  const API_URL = "http://localhost:8080/api/teams";
+
+  const newTeam = {
+    id: uuidv4(),
+    name: "Team " + number,
+    scores: [{ name: "task 1", points: 5 }],
   };
 
-  const clickHandler = () => {
-    fetch(url, {
+  const clickHandler = async () => {
+    const response = fetch(API_URL, {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify(newTeam),
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        console.log("Success: ", response);
-        props.onNewButton();
-      });
+    });
+    const fetchedData = await response;
+    const fetchedDataJson = await fetchedData.json();
+    console.log("Success: ", fetchedDataJson);
   };
 
   return (

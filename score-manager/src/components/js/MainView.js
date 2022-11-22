@@ -2,49 +2,27 @@ import React, { useEffect, useState } from "react";
 import Score from "./Score";
 import "../css/mainView.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import DetailView from "./DetailView";
 import NewTeamButton from "./NewTeamButton";
 
 const MainView = () => {
   const API_URL = "http://localhost:8080/api/teams";
 
-  const [isvisible, setisvisible] = useState(false);
-  const [teamName, setTeamName] = useState("");
   const [teams, setTeams] = useState([]);
 
-  const fetchTeams = (url) =>
-    fetch(url)
-      .then((res) => res.json())
-      .then((response) => setTeams(response));
+  const getTeams = async () => {
+    const res=await fetch(API_URL)
+    const data= await res.json()
 
-  const callback = (isvis, team, points) => {
-    setisvisible(isvis);
-    setTeamName(team);
-    fetchTeams(API_URL);
+    return data
   };
 
   useEffect(() => {
-    fetchTeams(API_URL);
-  }, []);
+    getTeams().then(data=>setTeams(data))
+  }, [])
 
-  const newButtonHandler = () => {
-    fetchTeams(API_URL);
-  };
-
-  //   // const scores = mockedDb.map(team => team.tasks).flat().map(task => task.score)
-
-  //   // const teamPointsCollection = teamTasksCollection.score.map(
-  //   //   ({points}) => points.score
-  //   // );
-
-  //   // const teamPoints = tasks.map((teamPoints) =>
-  //   //   teamPoints.score.reduce((a, b) => a + b, 0)
-  //   // );
-
-  //   // const totalTeamPoints = teamPoints.reduce((a, b) => a + b, 0);
-
-  //   // setTotalPoints(totalPoints);
-  // }, []);
+  useEffect(() => {
+    getTeams().then(data=>setTeams(data))
+  }, [teams])
 
   return (
     <div className="backgroundColor">
@@ -57,17 +35,9 @@ const MainView = () => {
             <div>
               <h2 className="text-white mb-4 text-center font-monospace">Solera Teams Bootcamp 4</h2>
             </div>
-            <Score callback={callback} teams={teams} />
-            {isvisible && (
-              <DetailView
-                callback={callback}
-                teamname={teamName}
-                teams={teams}
-              />
-            )}
+            <Score teams={teams} />
             <NewTeamButton
-              teamcount={teams.length}
-              onNewButton={newButtonHandler}
+              teamcount={teams.length}              
             />
           </div>
         </div>

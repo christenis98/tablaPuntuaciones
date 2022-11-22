@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../css/NewTaskForm.css";
 
 const NewTaskForm = (props) => {
   const [enteredTaskName, setEnteredTaskName] = useState("");
@@ -29,11 +28,11 @@ const NewTaskForm = (props) => {
   };
 
   return (
-    <div>
+    <div className="my-3 w-25">
       <form onSubmit={submintHandler}>
-        <div className="container new-expense__element font-monospace pt-2 ps-0">
-          <div className="new-task__form">
-            <label >Task name</label>
+        <div>
+          <div className="d-flex justify-content-between my-1">
+            <label>Task name</label>
             <input
               type="text"
               value={enteredTaskName}
@@ -41,7 +40,7 @@ const NewTaskForm = (props) => {
             />
           </div>
 
-          <div className="new-task__form">
+          <div className="d-flex justify-content-between my-1">
             <label>Points</label>
             <input
               type="number"
@@ -53,7 +52,7 @@ const NewTaskForm = (props) => {
           </div>
         </div>
         <div>
-          <button className="add-task-button" type="submit">
+          <button className="btn btn-danger my-3" type="submit">
             Add Task
           </button>
         </div>

@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import MainView from "./components/js/MainView";
+import DetailView from "./components/js/DetailView";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+const App=()=>{
   return (
     <>
-      <MainView />
+      <Routes>
+        <Route path="/" element={<MainView/>}></Route>
+        <Route path="/teamDetails/:id" element={<DetailView/>}></Route>
+      </Routes>
     </>
   );
 }
