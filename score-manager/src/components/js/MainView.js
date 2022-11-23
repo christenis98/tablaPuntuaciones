@@ -2,31 +2,26 @@ import React, { useEffect, useState } from "react";
 import "../css/mainView.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Score from "./Score";
-import NewTeamButton from "./NewTeamButton";
+
 
 const MainView = () => {
   // const API_URL = "http://localhost:8080/api/teams";
 
   // const [teams, setTeams] = useState([]);
+  // const [click, setClick] = useState();
+  // let isClicked;
 
   // const getTeams = async () => {
   //   const res = await fetch(API_URL);
-  //   const data = await res.json();
-
+  //   const data = await res.json();   
   //   return data;
   // };
 
   // useEffect(() => {
   //   getTeams().then((data) => {
-  //     setTeams(data);      
-  //   });
+  //     setTeams(data);
+  //   })      
   // }, []);
-
-  // console.log(teams)
-
-  // useEffect(() => {
-  //   getTeams().then((data) => setTeams(data));
-  // }, [teams]);
 
   return (
     <div className="backgroundColor">
@@ -42,7 +37,6 @@ const MainView = () => {
               </h2>
             </div>
             <Score/>
-            <NewTeamButton/>
           </div>
         </div>
       </div>
