@@ -8,20 +8,17 @@ const NewTeam = (props) => {
   const API_URL = "http://localhost:8080/api/teams";
   let teamnumber;
 
-  const[currentTeam, setCurrentTeam]=useState({})
+  const [currentTeam, setCurrentTeam] = useState({});
 
-  if (props.teamnumber>0)
-  {
-    teamnumber=props.teamnumber
-  }
-  else{
-    teamnumber=1
+  if (props.teamnumber > 0) {
+    teamnumber = props.teamnumber;
+  } else {
+    teamnumber = 1;
   }
 
   const newTeam = {
-    id: uuidv4(),
     name: "Team " + teamnumber,
-    scores: [{ name: "task 1", points: 5 }],
+    scores: [],
   };
 
   const clickHandler = async () => {
@@ -31,15 +28,14 @@ const NewTeam = (props) => {
       headers: {
         "Content-Type": "application/json",
       },
-    })
+    });
 
     // const fetchedData = await response;
     // const fetchedDataJson = await fetchedData.json();
     // console.log("Success: ", fetchedDataJson);
 
     setCurrentTeam(newTeam);
-    props.isclicked(true)
-
+    props.isclicked(true);
   };
 
   return (

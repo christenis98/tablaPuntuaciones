@@ -5,7 +5,6 @@ import DeleteTeamButton from "./DeleteTeamButton";
 import NewTaskButton from "./NewTaskButton";
 import TaskList from "./TaskList";
 
-
 export default function DetailView() {
   const identifierObj = useParams();
   const [teams, setTeams] = useState([]);
@@ -48,8 +47,8 @@ export default function DetailView() {
   };
 
   const postTeamWithNewTask = async (teamUpdated) => {
-    const response = fetch(API_URL, {
-      method: "POST",
+    const response = fetch(API_URL + "/" + identifier, {
+      method: "PUT",
       body: JSON.stringify(teamUpdated),
       headers: {
         "Content-Type": "application/json",
@@ -61,25 +60,29 @@ export default function DetailView() {
     console.log("Success: ", fetchedDataJson);
 
     getTeams().then((data) => setTeams(data));
-  };  
+  };
 
   return (
     <div className="page-background d-flex justify-content-center">
-      <div
-        style={{ width: "45%" }}
-        className="detail-view p-5"
-      >
-        <div className="d-flex justify-content-center"> <DeleteTeamButton></DeleteTeamButton> </div>
+      <div style={{ width: "45%" }} className="detail-view p-5">
+        <div className="d-flex justify-content-center">
+          {" "}
+          <DeleteTeamButton></DeleteTeamButton>{" "}
+        </div>
         <div className="d-flex pb-3 justify-content-between">
-          <h3 className="text-white font-monospace text-uppercase mt-2"> {currentTeamName} </h3>
+          <h3 className="text-white font-monospace text-uppercase mt-2">
+            {" "}
+            {currentTeamName}{" "}
+          </h3>
           <Link to={"/"}>
             <button className="btn-close btn-close-white"></button>
           </Link>
         </div>
         <TaskList team={currentTeam.currentTeam}></TaskList>
-        <div className="row d-flex justify-content-center"><NewTaskButton onAddTask={onAddTask}></NewTaskButton></div>
+        <div className="row d-flex justify-content-center">
+          <NewTaskButton onAddTask={onAddTask}></NewTaskButton>
+        </div>
       </div>
-      
     </div>
   );
 }

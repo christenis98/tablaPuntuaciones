@@ -1,6 +1,4 @@
 import React from "react";
-import TaskButtons from "./TaskButtons";
-import TaskData from "./TaskData";
 
 export default function Task(props) {
   return (
