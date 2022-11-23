@@ -5,6 +5,9 @@ import DetailView from "./components/js/DetailView";
 import { Routes, Route } from "react-router-dom";
 
 const App=()=>{
+
+  const getPoints=(totalPoints)=>{console.log(totalPoints)}
+
   return (
     <>
       <Routes>

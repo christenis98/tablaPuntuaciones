@@ -61,7 +61,7 @@ export default function DetailView() {
     console.log("Success: ", fetchedDataJson);
 
     getTeams().then((data) => setTeams(data));
-  };
+  };  
 
   return (
     <div className="page-background d-flex justify-content-center">
