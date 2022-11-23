@@ -26,14 +26,14 @@ const NewTask = (props) => {
     <>
       {newTask ? (
         <button
-          className="new-task-button font-monospace"
+          className="col-2 new-task-button font-monospace"
           onClick={onClickHandler}
         >
           New Task
         </button>
       ) : (
         <button
-          className="new-task-button font-monospace"
+          className=" col-3 new-task-button font-monospace"
           onClick={onClickHandler}
         >
           Hide New Task

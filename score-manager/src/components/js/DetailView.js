@@ -77,7 +77,7 @@ export default function DetailView() {
           </Link>
         </div>
         <TaskList team={currentTeam.currentTeam}></TaskList>
-        <NewTaskButton onAddTask={onAddTask}></NewTaskButton>
+        <div className="row d-flex justify-content-center"><NewTaskButton onAddTask={onAddTask}></NewTaskButton></div>
       </div>
       
     </div>
