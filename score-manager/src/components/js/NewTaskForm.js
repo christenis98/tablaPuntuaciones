@@ -33,7 +33,7 @@ const NewTaskForm = (props) => {
       <form onSubmit={submintHandler}>
         <div className="container new-expense__element font-monospace pt-3 ps-0">
           <div className="new-task__form">
-            <label >Task name</label>
+            <label>Task name</label>
             <input
               type="text"
               value={enteredTaskName}
@@ -52,9 +52,13 @@ const NewTaskForm = (props) => {
             />
           </div>
 
-          <div> <button className="add-task-button mt-4" type="submit">Add Task</button> </div>
+          <div>
+            {" "}
+            <button className="add-task-button mt-4" type="submit">
+              Add Task
+            </button>{" "}
+          </div>
         </div>
-        
       </form>
     </div>
   );
