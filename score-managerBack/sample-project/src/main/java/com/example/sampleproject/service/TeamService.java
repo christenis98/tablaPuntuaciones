@@ -2,6 +2,7 @@ package com.example.sampleproject.service;
 
 import java.util.List;
 
+import com.example.sampleproject.model.Score;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,50 +39,57 @@ public class TeamService {
 	}
 
 	public boolean checkData(Team team) {
-		JSONObject object = new JSONObject(team);
-		String tName = "";
-		JSONArray score = null;
-		String activity;
-		int points;
+		if (team == null) {
+			throw new EmptyObjectException("Team is null");
+		}
 
-		// comprobar team
-		if (object.isEmpty()) {
+		String id = team.getId();
 
-			throw new EmptyObjectException("No team data found");
-		} else {
-			tName = object.getString("name");
-			score = object.getJSONArray("scores");
+		if (!(id == null)) {
+			throw new EmptyObjectException("Id must be null");
+		}
 
-			if (tName.isBlank() && tName.length() < 3) {
+		String name = team.getName();
+
+		if (name == null || name.length() < 3) {
+			throw new StringSizeException("Name must have more than 3 characters!");
+		}
+
+		List<Score> score = team.getScores();
+
+
+		if (!(score == null) && !checkScore(score)) {
+			throw new InvalidDataTypeException("Team score has incorrect data");
+		}
+
+		return true;
+	}
+
+	private boolean checkScore(List<Score> score) {
+
+		String activity = "";
+		int points = 0;
+
+		for (int i = 0; i < score.size(); i++) {
+
+			Score temp = score.get(i);
+
+			// nombre de la actividad
+			activity = temp.getName();
+
+			// comprobar nombre de la activity
+			if (activity == null || activity.trim().length() < 3) {
 				throw new StringSizeException("Name must have more than 3 characters!");
 			}
-
-			if (score.isEmpty()) {
-				throw new EmptyObjectException("No score data found");
+			try {// para que no se rompa al hacer el parse con JSON
+				points = temp.getPoints();
+				System.out.println(points);
+			} catch (Exception e) {
+				throw new InvalidDataTypeException("Must be a number");
 			}
 
-			for (int i = 0; i < score.length(); i++) {
-
-				JSONObject temp = score.getJSONObject(i);
-
-				// nombre de la actividad
-				activity = temp.getString("name");
-
-				// comprobar nombre de la activity
-				if (activity.isBlank() && activity.length() < 3) {
-					throw new StringSizeException("Name must have more than 3 characters!");
-				}
-				try {// para que no se rompa al hacer el parse con JSON
-					points = temp.getInt("points");
-					System.out.println(points);
-				} catch (Exception e) {
-					throw new InvalidDataTypeException("Must be a number");
-				}
-
-				if (points <= 0 || points >= 10) {
-					System.out.println(points + "siahafijsiahfuih");
-					throw new OutOfRangeException("Number must be bigger or equal to 0 and lower or equal to 10");
-				}
+			if (points <= 0 || points >= 10) {
+				throw new OutOfRangeException("Number must be bigger or equal to 0 and lower or equal to 10");
 			}
 		}
 		return true;
