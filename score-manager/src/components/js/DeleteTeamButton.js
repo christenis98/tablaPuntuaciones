@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "../css/DeleteTeamButton.css";
 
 export default function DeleteTeamButton() {
   const idObj = useParams();
@@ -25,8 +26,8 @@ export default function DeleteTeamButton() {
   };
 
   return (
-    <div className="mt-1">
-      <button onClick={ClickHandler} className="btn btn-primary">
+    <div>
+      <button onClick={ClickHandler} className="delete-team-button">
         Delete This Team
       </button>
     </div>

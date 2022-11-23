@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../css/NewTask.css";
 import NewTaskForm from "./NewTaskForm";
 
 const NewTask = (props) => {
@@ -25,17 +26,17 @@ const NewTask = (props) => {
     <>
       {newTask ? (
         <button
-          className="new-task-button font-monospace"
+          className="col-2 new-task-button font-monospace"
           onClick={onClickHandler}
         >
           New Task
         </button>
       ) : (
         <button
-          className="new-task-button font-monospace"
+          className=" col-3 new-task-button font-monospace"
           onClick={onClickHandler}
         >
-          Hide
+          Hide New Task
         </button>
       )}
       {isVisible ? <NewTaskForm onSaveNewTask={onSaveNewTask} /> : null}

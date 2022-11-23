@@ -1,4 +1,3 @@
-import "../css/Score.css";
 import Card from "./Card";
 import { useState, useEffect } from "react";
 

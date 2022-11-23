@@ -1,0 +1,23 @@
+.delete-team-button {
+    transition: all .4s ease;
+    color: #fff;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: bold;
+    background-color : transparent;
+    padding: 14px;
+    outline:none;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  .delete-team-button:hover {
+    color: #40005d;
+    border: 2px solid #ffffff;
+    background-color: #ffffff;
+  }
+  
+  
+  
